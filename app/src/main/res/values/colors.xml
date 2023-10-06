@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#254595</color>
+    <color name="lightblue">#A3CAFA</color>
+    <color name="darkblue">#0E203C</color>
+    <color name="colorTotalParcels">#B4B4B5</color>
+    <color name="colorPendingParcels">#5B6C87</color>
+    <color name="colorFailedParcels">#855D65</color>
+    <color name="colorSuccessParcels">#4C6E4E</color>
+    <color name="listBkg">#BFBFBF</color>
+    <color name="colorSuccessButton">#00FF00</color> <!-- Replace with your desired color -->
+    <color name="colorFailedButton">#FF0000</color> <!-- Replace with your desired color -->
+</resources>

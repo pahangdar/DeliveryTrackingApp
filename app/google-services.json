@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "332228408472",
+    "project_id": "delivery-tracking-androidstd",
+    "storage_bucket": "delivery-tracking-androidstd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332228408472:android:49615c81e0042722310ced",
+        "android_client_info": {
+          "package_name": "com.example.deliverytrackingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3I4LrwyJN4cyK6RSEoNCWs6dMPF4NBw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer transparent background for padding -->
+    <item android:drawable="@android:color/transparent" />
+    <!-- Rounded border shape -->
+    <item>
+        <shape
+            android:shape="rectangle">
+            <!-- Rounded corners -->
+            <corners android:radius="12dp" /> <!-- Adjust the radius for desired roundness -->
+            <!-- Border color and thickness -->
+            <stroke
+                android:color="@color/blue"
+            android:width="2dp" />
+            <!-- Inner transparent background for the icon -->
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Rounded Rectangle Background -->
+    <LinearLayout
+        android:id="@+id/roundedRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Parcel Data TextViews -->
+        <TextView
+            android:id="@+id/sequenceNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sequence Number: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/customerNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/phoneNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number: "
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="16dp">
+
+            <!-- "Delivery Success" Button -->
+            <Button
+                android:id="@+id/deliverySuccessButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delivery Success"
+                android:textSize="18sp"
+                android:background="@color/colorSuccessButton" /> <!-- Change the colorSuccessButton to your desired color resource -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+            <!-- "Delivery Failed" Button -->
+            <Button
+                android:id="@+id/deliveryFailedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delivery Failed"
+                android:textSize="18sp"
+                android:background="@color/colorFailedButton" /> <!-- Change the colorFailedButton to your desired color resource -->
+
+        </LinearLayout>
+        <!-- Row for "Call" and "Navigate" Buttons -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <ImageButton
+                android:id="@+id/callButton"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_call"
+                android:background="@drawable/outline"
+                android:contentDescription="Call Button" />
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="24dp" />
+
+            <ImageButton
+                android:id="@+id/navButton"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_navigation"
+                android:background="@drawable/outline"
+                android:contentDescription="Navigation Button" />
+
+        </LinearLayout>
+
+        <!-- "Delivery Success" and "Delivery Failed" Buttons (You can add these later) -->
+
+    </LinearLayout>
+
+    <!-- "Back" ImageButton -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_weight="1"
+        android:background="@drawable/outline"
+        android:contentDescription="Back Button" />
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Rectangle 1: Total Number of Parcels -->
+    <LinearLayout
+        android:id="@+id/totalParcelsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorTotalParcels"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <!-- Display Total Number of Parcels Here -->
+        <TextView
+            android:id="@+id/totalParcelsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Parcels: 0"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <!-- Rectangle 2: Pending Parcels -->
+    <LinearLayout
+        android:id="@+id/pendingParcelsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPendingParcels"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <!-- Display Number of Pending Parcels Here -->
+        <TextView
+            android:id="@+id/pendingParcelsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending Parcels: 0"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <!-- Rectangle 3: Failed Parcels -->
+    <LinearLayout
+        android:id="@+id/failedParcelsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorFailedParcels"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <!-- Display Number of Failed Parcels Here -->
+        <TextView
+            android:id="@+id/failedParcelsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Failed Parcels: 0"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <!-- Rectangle 4: Successful Parcels -->
+    <LinearLayout
+        android:id="@+id/successParcelsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorSuccessParcels"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+
+        android:gravity="center">
+
+        <!-- Display Number of Successful Parcels Here -->
+        <TextView
+            android:id="@+id/successParcelsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Successful Parcels: 0"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+    </LinearLayout>
+</LinearLayout>
