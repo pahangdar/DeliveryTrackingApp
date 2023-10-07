@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.core.content.ContextCompat;
+import android.net.Uri;
 
 public class ParcelListActivity extends AppCompatActivity implements ItemClickListener {
 
@@ -30,6 +31,7 @@ public class ParcelListActivity extends AppCompatActivity implements ItemClickLi
     private String parcelCount;
     private List<Parcel> parcelList;
 
+
     @Override
     public void onItemClick(Parcel parcel) {
         // Create an intent to start ParcelDetailActivity
@@ -37,6 +39,7 @@ public class ParcelListActivity extends AppCompatActivity implements ItemClickLi
 
         // Pass the clicked parcel's data to ParcelDetailActivity using extras
         intent.putExtra("parcel", parcel);
+        intent.putExtra("userId", userId);
 
         // Start the activity
         startActivity(intent);
@@ -78,6 +81,7 @@ public class ParcelListActivity extends AppCompatActivity implements ItemClickLi
 
         // Find custom ActionBar views
         ImageButton backButton = findViewById(R.id.backButton);
+        ImageButton mapButton = findViewById(R.id.mapButton);
         TextView titleTextView = findViewById(R.id.titleTextView);
 
         // Set the title text
@@ -108,6 +112,49 @@ public class ParcelListActivity extends AppCompatActivity implements ItemClickLi
                 onBackPressed();
             }
         });
+
+        // Set a click listener for the mapButton
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (parcelList.size() < 2) {
+                    // Handle the case where there are fewer than 2 parcels
+                    return;
+                }
+
+                // Build waypoints for the Directions API request
+                StringBuilder waypoints = new StringBuilder();
+                for (int i = 1; i < parcelList.size() - 1; i++) {
+                    double latitude = parcelList.get(i).getLatitude();
+                    double longitude = parcelList.get(i).getLongitude();
+                    waypoints.append(latitude).append(",").append(longitude).append("|");
+                }
+
+                // Remove the trailing "|" if it exists
+                if (waypoints.length() > 0) {
+                    waypoints.deleteCharAt(waypoints.length() - 1);
+                }
+
+                // Create an intent to open Google Maps with directions
+                Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&waypoints=" +
+                        waypoints.toString() +
+                        "&destination=" +
+                        parcelList.get(parcelList.size() - 1).getLatitude() +
+                        "," +
+                        parcelList.get(parcelList.size() - 1).getLongitude());
+
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps"); // Specify the package name
+
+                // Check if there is a mapping app available
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                } else {
+                    // Handle the case where no mapping app is available
+                }
+            }
+        });
+
     }
 
     private void retrieveParcelDataBasedOnStatus() {
@@ -123,6 +170,8 @@ public class ParcelListActivity extends AppCompatActivity implements ItemClickLi
                 for (DataSnapshot deliverySnapshot : dataSnapshot.getChildren()) {
                     Parcel parcel = deliverySnapshot.getValue(Parcel.class);
                     if (parcel != null && status.equals(parcel.getStatus())) {
+                        String deliveryId = deliverySnapshot.getKey();
+                        parcel.setDeliveryId(deliveryId);
                         parcelList.add(parcel);
                     }
                 }

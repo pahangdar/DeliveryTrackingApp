@@ -56,13 +56,19 @@ public class MainActivity extends AppCompatActivity {
         databaseRef = FirebaseDatabase.getInstance().getReference().child("deliveries").child(userId);
 
         // Retrieve parcel data from Firebase Realtime Database
-        retrieveParcelData();
+//        retrieveParcelData();
 
         // Set click listeners for rectangles
         setRectangleClickListener(pendingParcelsLayout, "pending");
         setRectangleClickListener(failedParcelsLayout, "failed");
         setRectangleClickListener(successParcelsLayout, "success");
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateParcelCounts(); // Refresh the parcel counts when the activity is resumed
     }
 
     private void setRectangleClickListener(final LinearLayout layout, final String status) {
@@ -89,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void retrieveParcelData() {
+    private void updateParcelCounts() {
         // Listen for changes in the database at the specified path
         databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -134,5 +140,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

@@ -14,7 +14,26 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Close Button (Top-right corner) -->
+        <ImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_close"
+            android:background="@drawable/outline"
+            android:contentDescription="Close Button" />
+
         <!-- Parcel Data TextViews -->
+        <TextView
+            android:id="@+id/deliveryIdTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery Id: "
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/sequenceNumberTextView"
             android:layout_width="wrap_content"
@@ -44,6 +63,7 @@
             android:textSize="18sp" />
 
         <LinearLayout
+            android:id="@+id/deliveryButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -72,12 +92,15 @@
                 android:background="@color/colorFailedButton" /> <!-- Change the colorFailedButton to your desired color resource -->
 
         </LinearLayout>
+
         <!-- Row for "Call" and "Navigate" Buttons -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray" />
+
         <LinearLayout
+            android:id="@+id/callNavButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -91,6 +114,7 @@
                 android:src="@drawable/ic_call"
                 android:background="@drawable/outline"
                 android:contentDescription="Call Button" />
+
             <Space
                 android:layout_width="20dp"
                 android:layout_height="24dp" />
@@ -103,24 +127,8 @@
                 android:src="@drawable/ic_navigation"
                 android:background="@drawable/outline"
                 android:contentDescription="Navigation Button" />
-
         </LinearLayout>
 
-        <!-- "Delivery Success" and "Delivery Failed" Buttons (You can add these later) -->
 
     </LinearLayout>
-
-    <!-- "Back" ImageButton -->
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:padding="5dp"
-        android:src="@drawable/ic_arrow_back"
-        android:layout_weight="1"
-        android:background="@drawable/outline"
-        android:contentDescription="Back Button" />
-
 </RelativeLayout>
